@@ -1,6 +1,5 @@
 package Encapsulation;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,20 +8,7 @@ import static org.junit.Assert.*;
 
 public class StudentTest {
 
-    private Student student;
-
-    @Before
-    public void setUp() throws Exception {
-        student = new Student();
-
-        student.setStudNum(215741);
-        student.setFirstName("Nacisha");
-        student.setLastName("Jaftha");
-    }
-
-    @After
-    public void tearDown() throws Exception {
-    }
+    protected Student student = new Student();
 
     @Test
     public void getStudNum() {
@@ -40,14 +26,35 @@ public class StudentTest {
     }
 
     @Test
+    public void getLoanAmount() {
+        Assert.assertSame(student.getLoanAmount(), 15000.0);
+    }
+
+    @Test
     public void setStudNum() {
+        int testStudNum = 215741;
+        student.setStudNum(testStudNum);
+        assertEquals(testStudNum, testStudNum);
     }
 
     @Test
     public void setFirstName() {
+        String testFirstName = "Nacisha";
+        student.setFirstName(testFirstName);
+        assertEquals(testFirstName, testFirstName);
     }
 
     @Test
     public void setLastName() {
+        String testLastName = "Jaftha";
+        student.setLastName(testLastName);
+        assertEquals(testLastName, testLastName);
+    }
+
+    @Test
+    public void setLoanAmount() {
+        double testLoanAmount = 15000.0;
+        student.setLoanAmount(testLoanAmount);
+        assertEquals(testLoanAmount, testLoanAmount);
     }
 }

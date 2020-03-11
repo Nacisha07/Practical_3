@@ -7,8 +7,8 @@ public class UnderGraduate extends Student {
     protected  String qualication;
     protected double fee;
 
-    public UnderGraduate(int studNum, String firstName, String lastName, String qualification, double fee) {
-        super(studNum, firstName, lastName);
+    public UnderGraduate(int studNum, String firstName, String lastName, double loanAmount, String qualification, double fee) {
+        super(studNum, firstName, lastName, loanAmount);
         this.qualication = qualification;
         this.fee = fee;
     }
@@ -31,5 +31,10 @@ public class UnderGraduate extends Student {
     public void setFee(double fee) {
 
         this.fee = fee;
+    }
+
+    @Override
+    public double getInterest() {
+        return super.getLoanAmount() * 12 / 100;
     }
 }
